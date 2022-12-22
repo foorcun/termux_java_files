@@ -28,7 +28,8 @@ scanner.close();
 // eklemenin eklenmesi
 //
 int atLine = findTheLineNumber(linesOfFile , "void main()");
-linesOfFile.add(atLine, "hahaha");
+// exist check
+if(atLine !=0 && isAlreadyExist(linesOfFile.get(atLine -1), "hahaha" ) != true) linesOfFile.add(atLine, "hahaha");
 // yazma baslangici
 //
 
@@ -74,5 +75,11 @@ for(int i =0 ; i< targetList.size();i++){
 
 
 
+ private static boolean isAlreadyExist(String target, String insertString){
+	if(target.equals(insertString)) return true;
+
+	return false;
+
+ }
   
 }
